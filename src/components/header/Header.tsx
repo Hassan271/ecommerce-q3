@@ -92,7 +92,6 @@ const Header = () => {
     </div>
     {/* Favorite Ends  ======================================================================= */}
 
-
     {/* cart Starts ============================================================================= */}
     {/* relative= because we have text for it */}
     <div className="flex items-center px-2 border border-transparent hover:border-white
