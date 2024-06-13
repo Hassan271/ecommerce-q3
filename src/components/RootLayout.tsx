@@ -1,20 +1,19 @@
-import React, { ReactElement } from 'react';
-import Header from './header/Header';
-import Footer from './Footer';
-import BottomHeader from './header/BottomHeader';
+import React, { ReactElement } from "react";
+import Header from "./header/Header";
+import BottomHeader from "./header/BottomHeader";
+import Footer from "./Footer";
 
-interface Props{
+interface Props {
   children: ReactElement;
 }
 
-const RootLayout = ({children}:Props) => {
-  return 
-  (
+const RootLayout = ({ children }: Props) => {
+  return (
     <>
-     <Header/>
-     <BottomHeader/>
-     {children}
-     <Footer/>
+      <Header />
+      <BottomHeader />
+      {children}
+      <Footer />
     </>
   );
 };

@@ -10,9 +10,7 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { SlLocationPin } from "react-icons/sl";
 
 
-
 import Link from "next/link";
-
 
 const Header = () => {
   return (
@@ -22,20 +20,13 @@ const Header = () => {
     {/* logo Start ======================================================================= */}
         <div>
         
-        {/* <Link
+        <Link
           href={"/"} 
           className="px-2 border border-transparent hover:border-white cursor-pointer 
           duration-300 flex items-center justify-center h-[70%]">
 
           <Image className="w-28 object-cover mt-1" src={logo} alt="Logo" />
-        </Link> */}
-
-        <div
-          className="px-2 border border-transparent hover:border-white cursor-pointer 
-          duration-300 flex items-center justify-center h-[70%]">
-
-          <Image className="w-28 object-cover mt-1" src={logo} alt="Logo" />
-        </div>
+        </Link>
 
         </div>
     {/* logo Ends ======================================================================= */}
@@ -94,7 +85,8 @@ const Header = () => {
 
     {/* cart Starts ============================================================================= */}
     {/* relative= because we have text for it */}
-    <div className="flex items-center px-2 border border-transparent hover:border-white
+    <Link href={'/cart'} 
+    className="flex items-center px-2 border border-transparent hover:border-white
      cursor-pointer duration-300 h-[70%] relative">
     <Image
             className="w-auto object-cover h-8"
@@ -106,7 +98,7 @@ const Header = () => {
         0
     </span>
 
-    </div>
+    </Link>
     {/* cart Ends  ============================================================================= */}
 
 
