@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Banner from "@/components/Banner";
 import Products from "@/components/Products";
 
+
 // import Header from "@/components/header/Header";
 // import BottomHeader from "@/components/header/BottomHeader";
 // import Footer from "@/components/Footer";
@@ -11,8 +12,9 @@ interface Props {
   productData: ProductProps;
 }
 
-export default function Home({ productData }) {
-console.log(productData);
+export default function Home({ productData }: Props ) {
+// console to check product data in console   
+// console.log(productData);
 
   // const dispatch = useDispatch();
   // useEffect(() => {
@@ -24,15 +26,11 @@ console.log(productData);
     {/* Banner Start ========================================================= */}
     <div className="max-w-screen-2xl mx-auto">
         <Banner />
-        <Products  productData={productData}/>
-        {/* <div className="relative md:-mt020 lgl:-mt-32 xl:-mt-60 z-20 mb-10">
+        <div className="relative md:-mt020 lgl:-mt-32 xl:-mt-60 z-20 mb-10">
           <Products productData={productData} />
-        </div> */}
+        </div>
     </div>
     {/* Banner End ========================================================= */}
-
-
-
 
     {/* <Header />
     <BottomHeader/>
