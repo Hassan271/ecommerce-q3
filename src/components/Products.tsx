@@ -8,6 +8,8 @@ import { ProductProps } from "../../type";
 import { HiShoppingCart } from 'react-icons/hi';
 import { FaHeart } from 'react-icons/fa';
 
+// FormattedPrice------------
+import FormattedPrice from './FormattedPrice'
 
 // catch product data by props 
 const Products = ({productData}: any) => {
@@ -53,11 +55,52 @@ return (
             bg-transparent hover:bg-amazon_yellow cursor-pointer duration-300">
                 <FaHeart/></span>
         </div>
+{/* FormattedPrice ---------- -------------------------------------------------------- */}
+{isNew && (
+        <p className="absolute top-0 right-0 text-amazon_blue font-medium text-xs tracking-wide animate-bounce">
+                  {/* !save {oldPrice - price}  */}
+                  !save <FormattedPrice amount={oldPrice - price} />
 
-
+                </p>
+              )}
         </div>
+{/* FormattedPrice ---------- -------------------------------------------------------- */}
+
+{/*  ---------- -------------------------------------------------------- */}
+<hr />
+<div  className="px-4 py-3 flex flex-col gap-1">
+
+<p className="text-xs text-gray-500 tracking-wide">{category}</p>
+
+<p className="text-base font-medium">{title}</p>
+
+<p className="flex items-center gap-2">
+                <span className="text-sm line-through">
+                  <FormattedPrice amount={oldPrice} />
+                </span>
+                <span className="text-amazon_blue font-semibold">
+                  <FormattedPrice amount={price} />
+                </span>
+</p>
+
+{/* Description---------- */}
+<p className="text-xs text-gray-600 text-justify">
+        {description.substring(0, 120)}
+</p>
+
+{/* Add to cart Button------- */}
+
+<button className="h-10 font-medium bg-amazon_blue text-white rounded-md hover:bg-amazon_yellow hover:text-black duration-300 mt-2" >
+Add to Cart 
+</button>
+
+</div>
+{/*  ---------- -------------------------------------------------------- */}
 
 
+
+{/*  ---------- -------------------------------------------------------- */}
+        
         </div>
     )
     )
