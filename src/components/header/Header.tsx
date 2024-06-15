@@ -9,11 +9,20 @@ import { BiCaretDown } from "react-icons/bi";
 import { HiOutlineSearch } from "react-icons/hi";
 import { SlLocationPin } from "react-icons/sl";
 
-
 import Link from "next/link";
 
+// sueSelector 
+import { useSelector } from 'react-redux';
+import { StateProps } from '../../../type';
+
 const Header = () => {
-  return (
+
+// -------------------------------
+const { productData, favoriteData } = useSelector(
+    (state: StateProps) => state.next);
+// console.log(productData, favoriteData);
+// ------------------------------
+    return (
     <div  className="w-full h-20 bg-amazon_blue text-lightText sticky top-0 z-50" >
         <div className="h-full w-full mx-auto inline-flex items-center justify-between gap-1 mdl:gap-3 px-4" >
 
@@ -95,7 +104,7 @@ const Header = () => {
     />
     <p className='text-xs text-white font-bold mt-3'>Card</p>
     <span className="absolute text-amazon_yellow text-sm top-2 left-[29px] font-semibold">
-        0
+        {productData ? productData.length:0 }
     </span>
 
     </Link>

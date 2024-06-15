@@ -10,9 +10,18 @@ import { FaHeart } from 'react-icons/fa';
 
 // FormattedPrice------------
 import FormattedPrice from './FormattedPrice'
+// React Redux store 
+import { useDispatch } from 'react-redux';
+
 
 // catch product data by props 
 const Products = ({productData}: any) => {
+// useDispatch 
+const dispatch = useDispatch();
+
+// addtoCart
+// import { addToCart, addToFavorite } from "./store/nextSlice";
+
 
 // to check by console --------------
 // console.log(productData);
@@ -51,7 +60,24 @@ return (
             <span className="w-full h-full border-b-[1px] border-b-gray-400 flex items-center justify-center text-xl 
             bg-transparent hover:bg-amazon_yellow cursor-pointer duration-300">
                 <HiShoppingCart/></span>
-            <span className="w-full h-full border-b-[1px] border-b-gray-400 flex items-center justify-center text-xl 
+            <span 
+             onClick={() =>
+                dispatch(
+                  addToFavorite({
+                    _id: _id,
+                    brand: brand,
+                    category: category,
+                    description: description,
+                    image: image,
+                    isNew: isNew,
+                    oldPrice: oldPrice,
+                    price: price,
+                    title: title,
+                    quantity: 1,
+                  })
+                )
+              }
+            className="w-full h-full border-b-[1px] border-b-gray-400 flex items-center justify-center text-xl 
             bg-transparent hover:bg-amazon_yellow cursor-pointer duration-300">
                 <FaHeart/></span>
         </div>
@@ -90,13 +116,29 @@ return (
 
 {/* Add to cart Button------- */}
 
-<button className="h-10 font-medium bg-amazon_blue text-white rounded-md hover:bg-amazon_yellow hover:text-black duration-300 mt-2" >
+<button 
+     onClick={() =>
+                  dispatch(
+                    addToCart({
+                      _id: _id,
+                      brand: brand,
+                      category: category,
+                      description: description,
+                      image: image,
+                      isNew: isNew,
+                      oldPrice: oldPrice,
+                      price: price,
+                      title: title,
+                      quantity: 1,
+                    })
+                  )
+                }
+className="h-10 font-medium bg-amazon_blue text-white rounded-md hover:bg-amazon_yellow hover:text-black duration-300 mt-2" >
 Add to Cart 
 </button>
 
 </div>
 {/*  ---------- -------------------------------------------------------- */}
-
 
 
 {/*  ---------- -------------------------------------------------------- */}
