@@ -15,12 +15,20 @@ import Link from "next/link";
 import { useSelector } from 'react-redux';
 import { StateProps } from '../../../type';
 
+//session 
+import { useSession, signIn, signOut } from "next-auth/react"
+
+
 const Header = () => {
 
+    // session 
+    const { data: session } = useSession()
 // -------------------------------
 const { productData, favoriteData } = useSelector(
     (state: StateProps) => state.next);
 // console.log(productData, favoriteData);
+// console.log(session);
+
 // ------------------------------
     return (
     <div  className="w-full h-20 bg-amazon_blue text-lightText sticky top-0 z-50" >
@@ -71,7 +79,10 @@ const { productData, favoriteData } = useSelector(
         
     {/* Sign in Start  ========================================================================= */}
     
-    <div  className="text-xs text-gray-100 flex flex-col justify-center px-2 
+    <div  
+    onClick={() => signIn()}
+
+    className="text-xs text-gray-100 flex flex-col justify-center px-2 
     border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] ">
         <p>Hello, Sign in</p>
         <p className="text-white font-bold flex items-center">

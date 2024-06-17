@@ -9,7 +9,12 @@ import { persistor, store } from "@/store/store";
 // store persist Redux
 import { PersistGate } from 'redux-persist/integration/react' 
 
-export default function App({ Component, pageProps }: AppProps) 
+//  SessionProvider
+import { SessionProvider } from "next-auth/react";
+
+
+export default function App({ Component,   
+  pageProps: { session, ...pageProps }, }: AppProps) 
 {
   return (
 
@@ -17,12 +22,15 @@ export default function App({ Component, pageProps }: AppProps)
 <Provider store={store}>
 {/* persist ------------------ */}
 <PersistGate persistor={persistor} loading={null}>
+{/* Session Provider ------------ */}
+<SessionProvider session={session}>
 <div className="text-bodyFont">
   {/* RootLayout -------------- */}
 <RootLayout>
   <Component {...pageProps} />
 </RootLayout>
 </div>
+</SessionProvider>
 </PersistGate>
 </Provider>
   );

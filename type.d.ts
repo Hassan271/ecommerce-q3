@@ -9,6 +9,7 @@ export interface ProductProps {
   title: string;
   _id: number;
 }
+// define the State for -----------------------------
 export interface StoreProduct {
   brand: string;
   category: string;

@@ -13,6 +13,8 @@ import FormattedPrice from './FormattedPrice'
 // React Redux store 
 import { useDispatch } from 'react-redux';
 
+import { addToCart, addToFavorite } from "@/store/nextSlice";
+
 
 // catch product data by props 
 const Products = ({productData}: any) => {
